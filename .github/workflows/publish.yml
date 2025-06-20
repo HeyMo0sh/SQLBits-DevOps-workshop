@@ -6,8 +6,6 @@ name: Deploy SQL project
 on:
    push:
       branches: [ "main" ]
-      paths:
-        - 'Wingtips/**'
    pull_request:
      branches: [ "main" ]
      paths:
