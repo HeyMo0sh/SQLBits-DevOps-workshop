@@ -24,7 +24,7 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore WingTips/WingTips.sqlproj
     - name: Build
-      run: dotnet build WingTips/WingTips.sqlproj --no-restore
+      run: dotnet build WingTips/WingTips.sqlproj --no-restore /p:RunSqlCodeAnalysis=true
     - name: Publish SQL project
       run: |
         sqlpackage /Action:Publish /SourceFile:WingTips/bin/Debug/WingTips.dacpac /TargetConnectionString:${{secrets.SQL_CONNECTION_STRING}}
