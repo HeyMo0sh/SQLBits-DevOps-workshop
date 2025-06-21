@@ -34,7 +34,6 @@ dotnet tool install -g Microsoft.SqlPackage
 
 If you are unable to install the .NET SDK on your machine, using a GitHub Codespace for Lab 1 is recommended. As a cloud-based development environment, Codespaces provide a VS Code environment in the  Codespaces are preconfigured with the .NET SDK and you can install the SqlPackage CLI using the command above as well as the mssql and SQL Database Projects extensions for VS Code.
 
-
 Create a Codespace from your GitHub repository by clicking the green **Code** button and selecting **Create Codespace on main**. This will create a new Codespace in your GitHub repository.
 
 ![Codespace](./images/codespaces-github.png)
@@ -44,7 +43,6 @@ Create a Codespace from your GitHub repository by clicking the green **Code** bu
 Once in a Codespace, you can install the mssql and SQL Database Projects extensions for VS Code by clicking on the Extensions icon in the left-hand menu and searching for the extensions.
 
 Finally, you're ready to work on the labs from the Codespace.
-
 
 ## Setup a free database
 
