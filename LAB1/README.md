@@ -32,6 +32,7 @@ You must have the following installed on your machine:
 4. From the SQL projects extension, right-click on the **Wingtips** project and select **Build** to build the project. This will create a `.dacpac` file in the `bin/Debug` folder of the project. The `.dacpac` file is a compiled version of the SQL database model.
 
 5. Since we don't want to include files like a `.dacpac` in our future git repository, we need to add a `.gitignore` file to the project. Open the **Terminal** in VS Code (View menu > Terminal or Ctrl+\`), and run the following command to create a `.gitignore` file in the workshop folder:
+
   ```bash
   dotnet new gitignore
   ```
@@ -39,18 +40,18 @@ You must have the following installed on your machine:
 ### Push the project to a new private GitHub repository
 
 1. From the **Source Control** view in VS Code, initialize a git repository and commit the entire project to the repository with a commit message like "initial commit".
-2. The commit button in the Source Control view will now display **Publish Branch**. Click the button to publish the branch to a new private GitHub repository.
+1. The commit button in the Source Control view will now display **Publish Branch**. Click the button to publish the branch to a new private GitHub repository.
 
   ![publish branch](images/publish-button.png)
 
 {:start="3"}
-3. If you are prompted to sign in to GitHub, follow the prompts to sign in. 
-4. Select the private option for the repository, adjusting the name if you want to.
+1. If you are prompted to sign in to GitHub, follow the prompts to sign in. 
+1. Select the private option for the repository, adjusting the name if you want to.
 
   ![new repo](images/new-repo-vsc.png)
 
 {:start="5"}
-5. The repository will be created and the branch will be pushed to the new repository. A notification will appear in the bottom right corner of VS Code with a link to the new repository which will also be available in the GitHub website.
+1. The repository will be created and the branch will be pushed to the new repository. A notification will appear in the bottom right corner of VS Code with a link to the new repository which will also be available in the GitHub website.
 
   ![repository created](images/repo-success.png)
 
@@ -59,7 +60,7 @@ You must have the following installed on your machine:
 In this section we're going to create a GitHub Actions pipeline to publish the SQL project to the database from templates provided by GitHub, all from the web browser. Later on in our workshop we'll edit pipelines locally in VS Code.
 
 1. In the GitHub repository, select **Actions**.
-2. Search for the ".NET" template and select it to configure the pipeline, which starts with this template code:
+1. Search for the ".NET" template and select it to configure the pipeline, which starts with this template code:
 
   ```yml
     # This workflow will build a .NET project
@@ -92,8 +93,8 @@ In this section we're going to create a GitHub Actions pipeline to publish the S
           run: dotnet test --no-build --verbosity normal
   ```
   
-3. Rename the pipeline file to `publish.yml`.
-4. Change the workflow to run only on manual trigger:
+1. Rename the pipeline file to `publish.yml`.
+1. Change the workflow to run only on manual trigger:
 
   ```yml
     on:
@@ -101,8 +102,9 @@ In this section we're going to create a GitHub Actions pipeline to publish the S
   ```
 
   Remove the `push` and `pull_request` events, which trigger the pipeline on every commit and pull request to the specified branches.
-5. Remove the `Test` step in the pipeline and modify the pipeline name in the YAML to "Deploy SQL project".
-6. Modify the `Restore` and `Build` steps to build the SQL project in the `Wingtips` folder by specifying the project file:
+
+1. Remove the `Test` step in the pipeline and modify the pipeline name in the YAML to "Deploy SQL project".
+1. Modify the `Restore` and `Build` steps to build the SQL project in the `Wingtips` folder by specifying the project file:
   {% raw %}
   ```yml
     - name: Restore dependencies
@@ -113,7 +115,7 @@ In this section we're going to create a GitHub Actions pipeline to publish the S
   {% endraw %}
 
 {:start="6"}
-6. Add a step to the pipeline that uses **SqlPackage** to publish the `.dacpac` to the database after the SQL project has been built:
+1. Add a step to the pipeline that uses **SqlPackage** to publish the `.dacpac` to the database after the SQL project has been built:
   {% raw %}
   ```yml
     - name: Publish SQL project
@@ -124,12 +126,13 @@ In this section we're going to create a GitHub Actions pipeline to publish the S
   Note that the path to the source file is relative to the working directory of the pipeline, which starts at the root of the repository, and the name of the `.dacpac` file defaults to the name of the project.
 
 {:start="7"}
-7. Commit the changes to the pipeline file.
-8. Add a secret to the GitHub repository named `SQL_CONNECTION_STRING` with the connection string to the Azure SQL Database. Secrets are used to store sensitive information in GitHub Actions and are set in the repository settings under "secrets and variables" and "actions".
+
+1. Commit the changes to the pipeline file.
+1. Add a secret to the GitHub repository named `SQL_CONNECTION_STRING` with the connection string to the Azure SQL Database. Secrets are used to store sensitive information in GitHub Actions and are set in the repository settings under "secrets and variables" and "actions".
 
 > **Tip:** Surround the Connection String in quotes in the secret `"<connection string>"`.
 
-9. We won't run this pipeline just yet since we have no changes to apply to the database. We'll run it later after we make some changes to the project.
+1. We won't run this pipeline just yet since we have no changes to apply to the database. We'll run it later after we make some changes to the project.
 
 {% raw %}
 <details markdown="1">
