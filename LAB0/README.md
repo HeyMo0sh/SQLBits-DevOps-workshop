@@ -59,7 +59,7 @@ Download the [Wingtips-initial DACPAC file](Wingtips-initial.dacpac) from the re
 Obtain the admin connection string for the Azure SQL Database or SQL Server instance. The connection string should look similar to:
 
 ```text
-Server=tcp:sqlbits.database.windows.net,1433;Initial Catalog=wingtips;Persist Security Info=False;User ID=<SQL ADMIN>;Password=<password>>;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
+Server=tcp:sqlbits.database.windows.net,1433;Initial Catalog=wingtips;Persist Security Info=False;User ID=<SQL ADMIN>;Password=<password>;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
 ```
 
 Using the connection string and a new strong password for the student user, run the following command to deploy the initial state of the Wingtips database:
