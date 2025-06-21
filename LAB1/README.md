@@ -6,6 +6,7 @@ permalink: /LAB1/
 ---
 
 **Overview:**
+
 - [1.1](#11-create-a-project-from-an-existing-database): Create a project from an existing database
 - [1.2](#12-create-a-pipeline-to-publish-the-project-to-the-database): Create a pipeline to publish the project to the database
 - [1.3](#13-create-a-pipeline-to-build-the-project-and-run-code-analysis): Create a pipeline to build the project and run code analysis
@@ -59,6 +60,7 @@ In this section we're going to create a GitHub Actions pipeline to publish the S
 
 1. In the GitHub repository, select **Actions**.
 2. Search for the ".NET" template and select it to configure the pipeline, which starts with this template code:
+
   ```yml
     # This workflow will build a .NET project
     # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
@@ -92,10 +94,12 @@ In this section we're going to create a GitHub Actions pipeline to publish the S
   
 3. Rename the pipeline file to `publish.yml`.
 4. Change the workflow to run only on manual trigger:
+
   ```yml
     on:
       workflow_dispatch:
   ```
+
   Remove the `push` and `pull_request` events, which trigger the pipeline on every commit and pull request to the specified branches.
 5. Remove the `Test` step in the pipeline and modify the pipeline name in the YAML to "Deploy SQL project".
 6. Modify the `Restore` and `Build` steps to build the SQL project in the `Wingtips` folder by specifying the project file:
@@ -122,6 +126,11 @@ In this section we're going to create a GitHub Actions pipeline to publish the S
 {:start="7"}
 7. Commit the changes to the pipeline file.
 8. Add a secret to the GitHub repository named `SQL_CONNECTION_STRING` with the connection string to the Azure SQL Database. Secrets are used to store sensitive information in GitHub Actions and are set in the repository settings under "secrets and variables" and "actions".
+
+> [!IMPORTANT]
+> Put the Connection String in quotes in the secret
+> "<connection string>"
+
 9. We won't run this pipeline just yet since we have no changes to apply to the database. We'll run it later after we make some changes to the project.
 
 {% raw %}
@@ -193,6 +202,7 @@ In this section we're going to leverage SQL code analysis to provide ongoing fee
         - name: Build
           run: dotnet build Wingtips/Wingtips.sqlproj /p:RunSqlCodeAnalysis=true
   ```
+
   This pipeline will run on every commit to the main branch and pull requests against main.
 
 {:start="3"}

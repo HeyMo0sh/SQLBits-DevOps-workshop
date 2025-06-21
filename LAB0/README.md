@@ -21,7 +21,7 @@ If you are performing the labs as part of a self-paced learning experience, you 
 ## SQL Server Details
 
 Server:      sqlbits.database.windows.net
-Admin:       sqladmin
+Admin:       <SQL ADMIN>
 Password:    2025SQLbits4U
 
 To install the SqlPackage CLI, run the following command after installing the .NET SDK:
@@ -59,13 +59,13 @@ Download the [Wingtips-initial DACPAC file](Wingtips-initial.dacpac) from the re
 Obtain the admin connection string for the Azure SQL Database or SQL Server instance. The connection string should look similar to:
 
 ```text
-Server=tcp:sqlbits.database.windows.net,1433;Initial Catalog=wingtips;Persist Security Info=False;User ID=sqladmin;Password=<password>>;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
+Server=tcp:sqlbits.database.windows.net,1433;Initial Catalog=wingtips;Persist Security Info=False;User ID=<SQL ADMIN>;Password=<password>>;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
 ```
 
 Using the connection string and a new strong password for the student user, run the following command to deploy the initial state of the Wingtips database:
 
 ```bash
-sqlpackage /a:publish /sf:"LAB0/Wingtips-initial.dacpac" /tcs:"Server=tcp:sqlbits.database.windows.net,1433;Initial Catalog=<your wingtips db name>>;Persist Security Info=False;User ID=sqladmin;Password=<password>>;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;" /v:StudentPassword=<new student password>>
+sqlpackage /a:publish /sf:"LAB0/Wingtips-initial.dacpac" /tcs:"Server=tcp:sqlbits.database.windows.net,1433;Initial Catalog=<your wingtips db name>>;Persist Security Info=False;User ID=<SQL ADMIN>;Password=<password>;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;" /v:StudentPassword=<new student password>>
 ```
 
 ## Next lab
