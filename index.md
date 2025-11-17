@@ -17,6 +17,10 @@ This workshop is a deep dive on database DevOps centered on the SQL database pro
 - Admin:       sqladmin
 - Password:    2025PASSpr3con4U
 
+## Location of Spreadsheet for Questions
+
+[Link to Spreadsheet](https://1drv.ms/f/c/0b75183e0ba80564/EqxdeIZMXE1CtZFW2W1MVMsBnzV2AwDBXJvF1Hx5AMZ7Zw?e=qtmA2x)
+
 ## CodeSpace Install of SQLPACKAGE & .NET SDK
 
 ### .NET SDK
