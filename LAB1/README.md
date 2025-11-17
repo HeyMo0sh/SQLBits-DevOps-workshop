@@ -24,6 +24,12 @@ You must have the following installed on your machine:
 
 ## 1.1 Create a project from an existing database
 
+## SQL Server Details
+
+Server:      sqlbits.database.windows.net
+Admin:       sqladmin
+Password:    2025PASSpr3con4U
+
 ### Setup the project locally
 
 1. Connect to the Azure SQL Database in VS Code and open a new folder for this workshop. Name the folder `WingtipsWorkshop` or something else memorable like `DevOpsWorkshopMarathon`.
