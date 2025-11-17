@@ -29,6 +29,7 @@ You must have the following installed on your machine:
 - Server:      sqlbits.database.windows.net
 - Admin:       sqladmin
 - Password:    2025PASSpr3con4U
+- Database:    Wingtips
 
 ### Setup the project locally
 
