@@ -135,6 +135,12 @@ In this section we're going to create a GitHub Actions pipeline to publish the S
 {:start="7"}
 
 1. Commit the changes to the pipeline file.
+1. Obtain the admin connection string for the Azure SQL Database or SQL Server instance. The connection string should look similar to:
+
+```text
+Server=tcp:sqlbits.database.windows.net,1433;Initial Catalog=wingtips;Persist Security Info=False;User ID=<SQL ADMIN>;Password=<password>;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
+```
+
 1. YOUR DATABASE for `SQL_CONNECTION_STRING` below will be **db-pass-test-XX** where *XX* is your number
 1. Add a secret to the GitHub repository named `SQL_CONNECTION_STRING` with the connection string to the Azure SQL Database. Secrets are used to store sensitive information in GitHub Actions and are set in the repository settings under "secrets and variables" and "actions".
 
