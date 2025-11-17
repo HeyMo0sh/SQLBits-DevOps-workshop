@@ -135,6 +135,7 @@ In this section we're going to create a GitHub Actions pipeline to publish the S
 {:start="7"}
 
 1. Commit the changes to the pipeline file.
+1. YOUR DATABASE for `SQL_CONNECTION_STRING` below will be **db-pass-test-XX** where *XX* is your number
 1. Add a secret to the GitHub repository named `SQL_CONNECTION_STRING` with the connection string to the Azure SQL Database. Secrets are used to store sensitive information in GitHub Actions and are set in the repository settings under "secrets and variables" and "actions".
 
 > **Tip:** Surround the Connection String in quotes in the secret `"<connection string>"`.
