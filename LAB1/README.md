@@ -207,6 +207,7 @@ In this section we're going to leverage SQL code analysis to provide ongoing fee
 }
 ```
 
+1. Push your changes to Source Control.
 1. In VS Code, sync our project with the remote GitHub repository via `git pull`. A folder `.github` will be created in the root of the project with a `workflows` folder inside it.
 1. In the `.github/workflows` folder, create a new file named `build-codeanalysis.yml` with the following content:
 
