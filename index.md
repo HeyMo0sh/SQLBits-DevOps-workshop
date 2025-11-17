@@ -14,8 +14,8 @@ This workshop is a deep dive on database DevOps centered on the SQL database pro
 ## SQL Server Details
 
 - Server:      sqlbits.database.windows.net
-- Admin:       <contact Hamish Watson>
-- Password:    <contact Hamish Watson>
+- Admin:       sqladmin
+- Password:    2025PASSpr3con4U
 
 ## CodeSpace Install of SQLPACKAGE & .NET SDK
 

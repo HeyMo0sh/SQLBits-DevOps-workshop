@@ -21,8 +21,8 @@ If you are performing the labs as part of a self-paced learning experience, you 
 ## SQL Server Details
 
 Server:      sqlbits.database.windows.net
-Admin:       <SQL ADMIN>
-Password:    2025SQLbits4U
+Admin:       sqladmin
+Password:    2025PASSpr3con4U
 
 To install the SqlPackage CLI, run the following command after installing the .NET SDK:
 
