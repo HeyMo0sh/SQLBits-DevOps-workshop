@@ -26,9 +26,9 @@ You must have the following installed on your machine:
 
 ## SQL Server Details
 
-Server:      sqlbits.database.windows.net
-Admin:       sqladmin
-Password:    2025PASSpr3con4U
+- Server:      sqlbits.database.windows.net
+- Admin:       sqladmin
+- Password:    2025PASSpr3con4U
 
 ### Setup the project locally
 
