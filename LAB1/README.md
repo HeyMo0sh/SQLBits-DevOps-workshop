@@ -135,6 +135,13 @@ In this section we're going to create a GitHub Actions pipeline to publish the S
 {:start="7"}
 
 1. Commit the changes to the pipeline file.
+1. If you are using CodeSpaces ensure you do a 
+
+``` bash
+git pull
+```
+
+to get the latest change.
 1. Obtain the admin connection string for the Azure SQL Database or SQL Server instance. The connection string should look similar to:
 
 ```text
@@ -188,8 +195,20 @@ Server=tcp:sqlbits.database.windows.net,1433;Initial Catalog=wingtips;Persist Se
 
 In this section we're going to leverage SQL code analysis to provide ongoing feedback on the quality of the SQL code in the project. The pipeline will run on every commit to the main branch. When we use the pipeline on pull requests, it will provide feedback on the quality of the code before it is merged into the main branch and acts as a CI (continuous integration) pipeline.
 
-1. In VS Code, sync our project with the remote GitHub repository. A folder `.github` will be created in the root of the project with a `workflows` folder inside it.
-2. In the `.github/workflows` folder, create a new file named `build-codeanalysis.yml` with the following content:
+1. To resolve a .NET issue - we need to create a `global.json` file in the ROOT of your directory.
+1. Add this to the file:
+
+```json
+{
+  "sdk": {
+    "version": "8.0.416",
+    "rollForward": "disable"
+  }
+}
+```
+
+1. In VS Code, sync our project with the remote GitHub repository via `git pull`. A folder `.github` will be created in the root of the project with a `workflows` folder inside it.
+1. In the `.github/workflows` folder, create a new file named `build-codeanalysis.yml` with the following content:
 
   ```yml
     name: Build SQL project with code analysis
