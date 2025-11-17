@@ -1,4 +1,4 @@
-# SQLBits Summer 2025 SQL DevOps workshop
+# 2025 SQL DevOps workshop
 
 ## Title: SQL Projects and Source Control Integration for SQL in Fabric, Azure SQL, and SQL Server
 
