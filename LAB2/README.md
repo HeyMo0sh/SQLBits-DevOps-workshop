@@ -82,6 +82,11 @@ In this example, we're going to create a pipeline that runs a test deploy of the
             done
             set -o pipefail -e
 
+        - name: Enable contained database authentication
+          run: |
+            sqlcmd -S localhost -U sa -P ${{ secrets.CONTAINER_SQL_PASSWORD }} -d master -Q "EXEC sp_configure 'show advanced options', 1; RECONFIGURE;"
+            sqlcmd -S localhost -U sa -P ${{ secrets.CONTAINER_SQL_PASSWORD }} -d master -Q "EXEC sp_configure 'contained database authentication', 1; RECONFIGURE;"
+
         - name: Publish SQL project
           run: |
             sqlpackage /Action:Publish /SourceFile:Wingtips/bin/Debug/Wingtips.dacpac /TargetConnectionString:"Data Source=localhost,1433;Database=Wingtips;User ID=sa;Password=${{ secrets.CONTAINER_SQL_PASSWORD }};TrustServerCertificate=True;" /p:AllowIncompatiblePlatform=true
