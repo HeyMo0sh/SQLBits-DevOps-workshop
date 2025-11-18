@@ -62,9 +62,9 @@ In this example, we're going to create a pipeline that runs a test deploy of the
           with:
             dotnet-version: 8.0.x
         - name: Restore dependencies
-          run: dotnet restore wingtips/wingtips.sqlproj
+          run: dotnet restore Wingtips/Wingtips.sqlproj
         - name: Build
-          run: dotnet build wingtips/wingtips.sqlproj --no-restore
+          run: dotnet build Wingtips/Wingtips.sqlproj --no-restore
         - name: 'wait for sql container to be ready'
           run: |
             set +o pipefail +e
